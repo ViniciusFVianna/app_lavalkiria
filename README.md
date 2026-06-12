@@ -1,4 +1,4 @@
-readme_content = """# Lavalkiria 🧺✨
+# Lavalkiria 🧺✨
 
 O **Lavalkiria** é um aplicativo mobile desenvolvido em **Flutter** e **Dart** projetado especificamente para modernizar, simplificar e gerenciar a experiência de clientes em uma lavanderia self-service. Com uma identidade visual marcante e fluxos de onboarding altamente intuitivos, o app coloca o usuário no controle total dos seus ciclos de lavagem e secagem.
 
