@@ -1,5 +1,4 @@
 import 'package:app_lavalkiria/app/utils/command.dart';
-import 'package:flutter/material.dart';
 
 enum OnboardingStatus {initial, loading, loaded, success, error }
 

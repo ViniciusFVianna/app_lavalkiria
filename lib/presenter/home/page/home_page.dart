@@ -1,5 +1,6 @@
 import 'package:app_lavalkiria/design_system/theme/colors/app_colors.dart';
 import 'package:app_lavalkiria/presenter/home/page/home_controller.dart';
+import 'package:app_lavalkiria/presenter/home/wiget/home_content.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
@@ -17,7 +18,14 @@ class _HomePageState extends State<HomePage> {
   PageController pageController = PageController(initialPage: 0);
 
   @override
+  void initState() {
+    super.initState();
+    controller.onInit();
+  }
+
+  @override
   Widget build(BuildContext context) => Scaffold(
+    backgroundColor: AppColors.primaryLight,
     appBar: AppBar(
       backgroundColor: AppColors.primaryBase,
       title: SizedBox(height: 40, child: Logo().call()),
@@ -50,10 +58,22 @@ class _HomePageState extends State<HomePage> {
               controller: pageController,
               physics: NeverScrollableScrollPhysics(),
               children: [
-                Center(child: Text('Home')),
-                Center(child: Text('Indisponível no protótipo')),
-                Center(child: Text('Indisponível no protótipo')),
-                Center(child: Text('Indisponível no protótipo')),
+                HomeContent(controller: controller),
+                Center(child: Text('Indisponível no protótipo', style: TextStyle(
+                  color: AppColors.darkPrimaryDark,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),)),
+                Center(child: Text('Indisponível no protótipo', style: TextStyle(
+                  color: AppColors.darkPrimaryDark,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),)),
+                Center(child: Text('Indisponível no protótipo', style: TextStyle(
+                  color: AppColors.darkPrimaryDark,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),)),
               ],
             ),
           ),

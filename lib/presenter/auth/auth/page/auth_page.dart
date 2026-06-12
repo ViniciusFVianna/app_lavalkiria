@@ -21,78 +21,80 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: AppColors.primaryDark,
-    body: Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: MediaQuery.sizeOf(context).height,
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-      alignment: .center,
-      child: Column(
-        children: [
-          SizedBox(height: 35),
-          Container(
-            width: MediaQuery.sizeOf(context).width,
-            alignment: .centerRight,
-            child: TextButton(
-              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Indisponível no protótipo')),
-              ),
-              child: Text(
-                'Criar Conta',
-                style: TextStyle(
-                  color: AppColors.primaryWhite,
-                  fontWeight: .w400,
-                  fontSize: 16,
+    body: SingleChildScrollView(
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        height: MediaQuery.sizeOf(context).height,
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        alignment: .center,
+        child: Column(
+          children: [
+            SizedBox(height: 35),
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              alignment: .centerRight,
+              child: TextButton(
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Indisponível no protótipo')),
+                ),
+                child: Text(
+                  'Criar Conta',
+                  style: TextStyle(
+                    color: AppColors.primaryWhite,
+                    fontWeight: .w400,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 47),
-          SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            child: Logo().call(),
-          ),
-          SizedBox(height: 44),
-          _AuthForm(controller: controller),
-          SizedBox(height: 44),
-          ListenableBuilder(
-            listenable: Listenable.merge([
-              controller.hasEmailError,
-              controller.hasPasswordError,
-              controller.email,
-              controller.password,
-            ]),
-            builder: (context, value) {
-              return SizedBox(
-                width: MediaQuery.sizeOf(context).width,
-                height: 48,
-                child: ElevatedButton(
-                  onPressed: controller.enabledButon
-                      ? () => AppNavigator.pushReplacement(HomePage)
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryBase,
-                    surfaceTintColor: AppColors.primaryBase,
-                    disabledBackgroundColor: AppColors.primaryLight,
-                    disabledForegroundColor: AppColors.primaryLight,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+            SizedBox(height: 47),
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: Logo().call(),
+            ),
+            SizedBox(height: 44),
+            _AuthForm(controller: controller),
+            SizedBox(height: 44),
+            ListenableBuilder(
+              listenable: Listenable.merge([
+                controller.hasEmailError,
+                controller.hasPasswordError,
+                controller.email,
+                controller.password,
+              ]),
+              builder: (context, value) {
+                return SizedBox(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 48,
+                  child: ElevatedButton(
+                    onPressed: controller.enabledButon
+                        ? () => AppNavigator.pushReplacement(HomePage)
+                        : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primaryBase,
+                      surfaceTintColor: AppColors.primaryBase,
+                      disabledBackgroundColor: AppColors.primaryLight,
+                      disabledForegroundColor: AppColors.primaryLight,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'Entrar',
+                      style: TextStyle(
+                        color: controller.enabledButon
+                            ? AppColors.primaryWhite
+                            : AppColors.darkPrimaryBase,
+                        fontWeight: .w700,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
-                  child: Text(
-                    'Entrar',
-                    style: TextStyle(
-                      color: controller.enabledButon
-                          ? AppColors.primaryWhite
-                          : AppColors.darkPrimaryBase,
-                      fontWeight: .w700,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -101,7 +103,7 @@ class _AuthPageState extends State<AuthPage> {
 class _AuthForm extends StatelessWidget {
   final AuthController controller;
 
-  const _AuthForm({super.key, required this.controller});
+  const _AuthForm({required this.controller});
 
   @override
   Widget build(BuildContext context) => Form(
