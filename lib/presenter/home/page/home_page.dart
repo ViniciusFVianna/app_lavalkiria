@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
       ),
     ),
     body: SingleChildScrollView(
+      padding: EdgeInsets.all(10),
       child: Column(
         children: [
           SizedBox(
@@ -77,6 +78,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+
         ],
       ),
     ),

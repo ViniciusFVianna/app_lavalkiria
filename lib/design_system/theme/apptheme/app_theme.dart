@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../colors/app_colors.dart';
 
+/// Definição e configuração dos temas visuais da aplicação (Claro e Escuro).
+///
+/// Centraliza a criação do [ThemeData] utilizando as cores definidas em [AppColors]
+/// e padrões do Material 3.
 abstract class AppTheme {
-  // Configuração para o Tema Claro
+  /// Configuração para o tema claro ([ThemeData]).
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -28,7 +32,7 @@ abstract class AppTheme {
     );
   }
 
-  // Configuração para o Tema Escuro
+  /// Configuração para o tema escuro ([ThemeData]).
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,

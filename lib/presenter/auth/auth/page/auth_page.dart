@@ -118,6 +118,7 @@ class _AuthForm extends StatelessWidget {
               label: 'Email',
               hint: 'Informe seu email',
               keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
               validator: (value) => controller.validateEmail(value),
               hasError: controller.hasEmailError.data,
               errorText: controller.hasEmailError.data
@@ -135,6 +136,7 @@ class _AuthForm extends StatelessWidget {
               label: 'Senha',
               hint: 'Informe sua senha',
               obscureText: true,
+              textInputAction: TextInputAction.done,
               validator: (value) => controller.validatePassword(value),
               hasError: controller.hasPasswordError.data,
               errorText: controller.hasPasswordError.data
